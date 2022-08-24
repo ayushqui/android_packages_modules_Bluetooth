@@ -83,7 +83,7 @@ BluetoothAudioHalVersion GetAidlInterfaceVersion() {
     int version = 0;
     auto provider_factory = IBluetoothAudioProviderFactory::fromBinder(
         ::ndk::SpAIBinder(AServiceManager_waitForService(
-            kDefaultAudioProviderFactoryInterface.c_str())));
+            audioProviderFactoryInterface().c_str())));
 
     if (provider_factory == nullptr) {
       LOG_ERROR(
